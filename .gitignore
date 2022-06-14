@@ -1,0 +1,8 @@
+# Ignore VS code settings
+/.vscode/
+# Ignore Virtual Environment
+# Ignore pycache
+__pycache__
+.idea
+venv
+d1.py
