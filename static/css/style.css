@@ -28,11 +28,6 @@ body {
     color: black;
 }
 
-.topnav a.active {
-    background-color: #18bc9c;
-    color: white;
-}
-
 .topnav .icon {
     display: none;
 }
@@ -356,7 +351,7 @@ legend {
     border-radius: 50%;
 }
 
-#home {
+#Home {
     font-size: 2.5rem;
     font-weight: 700;
 }
@@ -403,9 +398,6 @@ legend {
     background: white;
 }
 
-.active {
-    background-color: rgba(47, 96, 165, 0.192);
-}
 
 .active:hover {
     background-color: rgba(47, 96, 165, 0.192);

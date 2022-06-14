@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dark_mode.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='icon/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.png') }}" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="{{url_for('static',filename='script/app.js')}}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/change.css') }}">
@@ -27,7 +27,7 @@
 {% block body %} {% endblock body %}
 
 <div class="topnav" id="myTopnav">
-    <a id="home">Sudoku Web Game</a>
+    <a id="Home">Sudoku Web Game</a>
     <a href="javascript:void(0);" class="icon" onclick="repo_nav()">
         <i class="fa fa-bars"></i>
     </a>

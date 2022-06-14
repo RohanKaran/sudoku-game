@@ -26,9 +26,6 @@
         background-color: rgb(221, 238, 255);
         outline: 0;
     }
-    .dark-mode .active {
-        background-color: #ccc;
-    }
     .dark-mode #toggle-button{
         background-color:white;
     }
