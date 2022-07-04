@@ -225,7 +225,6 @@ $(document).on("click", "#view", function() {
 
     req.done(function(data) {
         var idx = 0;
-        console.log(data)
         for (i in data){
             for (j in data[i]) {
                     $(cell[idx]).val(data[i][j])
