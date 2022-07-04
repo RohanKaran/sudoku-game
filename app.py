@@ -25,7 +25,8 @@ def index():
 def solve_sudoku():
     global cur_game
     if cur_game:
-        SudokuSolver.sudoku_solver(cur_game)
+        solution = SudokuSolver.sudoku_solver(cur_game)
+        cur_game = solution
         return jsonify(cur_game)
     raise HTTPException(404, "No game found")
 
