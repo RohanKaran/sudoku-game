@@ -11,7 +11,7 @@ def checkGrid(grid):
 
 
 def solveGrid(grid):
-    row = col = None
+    # row = col = None
     # Find next empty cell
     for i in range(0, 81):
         row = i // 9
@@ -45,11 +45,10 @@ def solveGrid(grid):
                                 square = [grid[i][3:6] for i in range(6, 9)]
                             else:
                                 square = [grid[i][6:9] for i in range(6, 9)]
-                        # Check that this value has not already be used on this 3x3 square
-                        if not value in (square[0] + square[1] + square[2]):
+                        # Check that this value has not already been  used on this 3x3 square
+                        if value not in (square[0] + square[1] + square[2]):
                             grid[row][col] = value
                             if checkGrid(grid):
-                                print("Grid Complete and Checked")
                                 return True
                             else:
                                 if solveGrid(grid):
