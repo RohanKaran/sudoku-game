@@ -25,8 +25,7 @@ def index():
 def solve_sudoku():
     global cur_game
     if cur_game:
-        if not SudokuGenerator.checkGrid(cur_game):
-            SudokuSolver.sudoku_solver(cur_game)
+        SudokuSolver.sudoku_solver(cur_game)
         return jsonify(cur_game)
     raise HTTPException(404, "No game found")
 

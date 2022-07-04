@@ -10,55 +10,59 @@ def checkGrid(grid):
     return True
 
 
-def solveGrid(grid):
+def isSafe(grid, row, col, num):
+    for x in range(9):
+        if grid[row][x] == num:
+            return False
+
+    for x in range(9):
+        if grid[x][col] == num:
+            return False
+
+    startRow = row - row % 3
+    startCol = col - col % 3
+    for i in range(3):
+        for j in range(3):
+            if grid[i + startRow][j + startCol] == num:
+                return False
+    return True
+
+
+def solveGrid(grid, row, col):
     # row = col = None
     # Find next empty cell
-    for i in range(0, 81):
-        row = i // 9
-        col = i % 9
-        if grid[row][col] == 0:
-            for value in range(1, 10):
-                if value not in grid[row]:
-                    if value not in (
-                            grid[0][col], grid[1][col], grid[2][col], grid[3][col], grid[4][col], grid[5][col],
-                            grid[6][col],
-                            grid[7][col], grid[8][col]):
-                        square = []
-                        if row < 3:
-                            if col < 3:
-                                square = [grid[i][0:3] for i in range(0, 3)]
-                            elif col < 6:
-                                square = [grid[i][3:6] for i in range(0, 3)]
-                            else:
-                                square = [grid[i][6:9] for i in range(0, 3)]
-                        elif row < 6:
-                            if col < 3:
-                                square = [grid[i][0:3] for i in range(3, 6)]
-                            elif col < 6:
-                                square = [grid[i][3:6] for i in range(3, 6)]
-                            else:
-                                square = [grid[i][6:9] for i in range(3, 6)]
-                        else:
-                            if col < 3:
-                                square = [grid[i][0:3] for i in range(6, 9)]
-                            elif col < 6:
-                                square = [grid[i][3:6] for i in range(6, 9)]
-                            else:
-                                square = [grid[i][6:9] for i in range(6, 9)]
-                        # Check that this value has not already been  used on this 3x3 square
-                        if value not in (square[0] + square[1] + square[2]):
-                            grid[row][col] = value
-                            if checkGrid(grid):
-                                return True
-                            else:
-                                if solveGrid(grid):
-                                    return True
-            break
-    grid[row][col] = 0
+    if row == 8 and col == 9:
+        return True
+
+    if col == 9:
+        row += 1
+        col = 0
+
+    if grid[row][col] > 0:
+        return solveGrid(grid, row, col + 1)
+    for num in range(1, 10, 1):
+
+        if isSafe(grid, row, col, num):
+
+            # Assigning the num in
+            # the current (row,col)
+            # position of the grid
+            # and assuming our assigned
+            # num in the position
+            # is correct
+            grid[row][col] = num
+
+            # Checking for next possibility with next
+            # column
+            if solveGrid(grid, row, col + 1):
+                return True
+
+        grid[row][col] = 0
+    return False
 
 
 def sudoku_solver(grid: List[List[int]]) -> List[List[int]]:
-    solveGrid(grid)
+    solveGrid(grid, row=0, col=0)
     return grid
 
 
