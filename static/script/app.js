@@ -86,6 +86,7 @@ for (i in list) {
 
     };
 };
+org = [];
 // console.log(row1)
 $(document).on("click", "#newGame", function() {
     reset();
@@ -110,24 +111,28 @@ $(document).on("click", "#newGame", function() {
     req.done(function(data) {
 
         var idx = 0;
-        console.log(data)
+        org = [];
         for (i in data) {
+            let tmp =[];
             for (j in data[i]){
                 if (data[i][j] === 0) {
-                $(cell[idx]).val('');
+                    $(cell[idx]).val('');
 
-                $(cell[idx]).removeClass("black");
-                $(cell[idx]).removeAttr('readonly');
-            }
+                    $(cell[idx]).removeClass("black");
+                    $(cell[idx]).removeAttr('readonly');
+                }
                 else {
                 $(cell[idx]).val(data[i][j]);
                 $(cell[idx]).attr('readonly', 'readonly');
 
                 $(cell[idx]).addClass("black")
                 }
+                tmp.push(data[i][j]);
 
             idx++;
             }
+
+            org.push(tmp);
         }
 
 
@@ -209,9 +214,12 @@ $(document).on("click", "#check", function() {
 
 $(document).on("click", "#view", function() {
     $("#loader").css({ "display": "block" })
-
+    // console.log(JSON.stringify(org))
     req = $.ajax({
-        type: 'GET',
+        type: 'POST',
+        data: {
+            grid: JSON.stringify(org)
+        },
         url: '/solvesudoku',
     });
 

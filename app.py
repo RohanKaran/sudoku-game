@@ -1,17 +1,14 @@
 import json
-from http.client import HTTPException
 
 from flask import Flask, render_template, request, jsonify
+
 from sudoku import SudokuGenerator, SudokuSolver
 
 app = Flask(__name__)
 
-cur_game = None
-
 
 @app.route("/", methods=["POST", "GET"])
 def index():
-    global cur_game
     if request.method == 'POST':
         level = request.form.get('level')
         sg = SudokuGenerator.SudokuGenerator(int(level))
@@ -21,14 +18,10 @@ def index():
         return render_template("index.html")
 
 
-@app.route("/solvesudoku", methods=['GET'])
+@app.route("/solvesudoku", methods=['POST'])
 def solve_sudoku():
-    global cur_game
-    if cur_game:
-        solution = SudokuSolver.sudoku_solver(cur_game)
-        cur_game = solution
-        return jsonify(cur_game)
-    raise HTTPException(404, "No game found")
+    grid = json.loads(request.form.get("grid"))
+    return jsonify(SudokuSolver.sudoku_solver(grid))
 
 
 @app.route("/check-solution", methods=['POST'])
