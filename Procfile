@@ -1,1 +1,1 @@
-web: gunicorn app:app --log-config log_conf.yml
+web: gunicorn app:app

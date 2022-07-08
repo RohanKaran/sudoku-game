@@ -1,10 +1,13 @@
 import json
-
+import logging.config
 from flask import Flask, render_template, request, jsonify
 
+# from log_config import LogConfig
+from log_config import LogConfig
 from sudoku import SudokuGenerator, SudokuSolver
 
 app = Flask(__name__)
+logging.config.dictConfig(LogConfig().dict())
 
 
 @app.route("/", methods=["POST", "GET"])
