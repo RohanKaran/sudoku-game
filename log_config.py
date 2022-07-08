@@ -24,13 +24,8 @@ class LogConfig(BaseModel):
             "formatter": "default",
             "class": "logging.StreamHandler",
             "stream": "ext://sys.stderr",
-        },
-        "file": {
-            "formatter": "default",
-            "class": "logging.handlers.RotatingFileHandler",
-            "filename": FILE_NAME,
         }
     }
     loggers = {
-        "app": {"handlers": ["console", "file"], "level": LOG_LEVEL},
+        "app": {"handlers": ["console"], "level": LOG_LEVEL},
     }
