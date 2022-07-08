@@ -1,1 +1,1 @@
-web: gunicorn app:app --access-logformat '%(h)s %(p)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
+web: gunicorn app:app --access-logformat '%(h)s %(p)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s request_time=%(M)s "%(f)s" "%(a)s"'
