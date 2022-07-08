@@ -5,7 +5,7 @@ class LogConfig(BaseModel):
     """Logging configuration to be set for the server"""
 
     LOGGER_NAME: str = "app"
-    LOG_FORMAT: str = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
+    LOG_FORMAT: str = '%(h)s %(l)s %(p)s %(M)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
     LOG_LEVEL: str = "DEBUG"
     FILE_NAME: str = 'example.log'
 
