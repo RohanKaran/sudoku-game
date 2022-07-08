@@ -14,7 +14,7 @@ class LogConfig(BaseModel):
     disable_existing_loggers = False
     formatters = {
         "default": {
-            "()": "gunicorn.glogging.Logger",
+            # "()": "gunicorn.glogging.Logger",
             "fmt": LOG_FORMAT,
             "datefmt": "%Y-%m-%d %H:%M:%S",
         },
