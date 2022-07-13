@@ -30,22 +30,10 @@
   #levelcss{
     height: fit-content;
     width: fit-content;
-    margin: 12px;
-    margin-left: 20%;
-    
-  
+      margin: 12px 12px 12px 20%;
 
-}
-#levelstatus{
-    color: #4CAF50;
-    background-color: black;
-    border-radius: 10px;
-    font-size: larger;
-    font-style: italic;
-    text-align: center;
-    border: none;
-    padding: 10px;
-}
+
+  }
 
 
 .labels {
@@ -65,7 +53,7 @@
     width: 50%;
     height: 5%;
     padding: 0 0 0.6rem;
-    background-color: #ccccff;
+    background-color: #18bc9c;
     text-align: center;
 }
 input[type=radio]{

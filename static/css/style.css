@@ -363,7 +363,7 @@ legend {
 /* When the radio button is checked, add a blue background */
 
 .container input:checked~.checkmark {
-    background-color: #2196F3;
+    background-color: #2c3e50;
 }
 
 
