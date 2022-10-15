@@ -18,9 +18,16 @@ class SudokuGenerator:
                 for value in range(1, 10):
                     if not (value in grid[row]):
                         if value not in (
-                                grid[0][col], grid[1][col], grid[2][col], grid[3][col], grid[4][col], grid[5][col],
-                                grid[6][col],
-                                grid[7][col], grid[8][col]):
+                            grid[0][col],
+                            grid[1][col],
+                            grid[2][col],
+                            grid[3][col],
+                            grid[4][col],
+                            grid[5][col],
+                            grid[6][col],
+                            grid[7][col],
+                            grid[8][col],
+                        ):
                             square = []
                             if row < 3:
                                 if col < 3:
@@ -67,10 +74,16 @@ class SudokuGenerator:
                 for value in numberList:
                     if not (value in grid[row]):
                         if value not in (
-                                grid[0][col], grid[1][col], grid[2][col], grid[3][col],
-                                grid[4][col], grid[5][col],
-                                grid[6][col],
-                                grid[7][col], grid[8][col]):
+                            grid[0][col],
+                            grid[1][col],
+                            grid[2][col],
+                            grid[3][col],
+                            grid[4][col],
+                            grid[5][col],
+                            grid[6][col],
+                            grid[7][col],
+                            grid[8][col],
+                        ):
                             # Identify which of the 9 squares we are working on
                             if row < 3:
                                 if col < 3:
@@ -129,6 +142,7 @@ class SudokuGenerator:
                 self.attempts -= 1
 
         return self.sudoku
+
 
 #
 # obj = SudokuGenerator(attempts=4)

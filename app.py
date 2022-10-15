@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
 def index():
-    if request.method == 'POST':
-        level = request.form.get('level')
+    if request.method == "POST":
+        level = request.form.get("level")
         sg = SudokuGenerator.SudokuGenerator(int(level))
         cur_game = sg.generateSudoku()
         return jsonify(cur_game)
@@ -18,13 +18,13 @@ def index():
         return render_template("index.html")
 
 
-@app.route("/solvesudoku", methods=['POST'])
+@app.route("/solvesudoku", methods=["POST"])
 def solve_sudoku():
     grid = json.loads(request.form.get("grid"))
     return jsonify(SudokuSolver.sudoku_solver(grid))
 
 
-@app.route("/check-solution", methods=['POST'])
+@app.route("/check-solution", methods=["POST"])
 def check_solution():
     grid = json.loads(request.form.get("grid"))
     if SudokuGenerator.checkGrid(grid):
