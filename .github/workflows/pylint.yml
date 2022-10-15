@@ -1,0 +1,38 @@
+name: PyLint
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "master"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install neccessary packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install black isort
+      - name: Lint with black
+        uses: wearerequired/lint-action@v2
+        with:
+          github_token: ${{ secrets.github_token }}
+          auto_fix: true
+          black: true
+          black_auto_fix: true
+      - name: Sort imports
+        run: |
+          isort . --profile black
+          git commit -am "sorted imports" || echo No isort changes to commit! 
+          git push
