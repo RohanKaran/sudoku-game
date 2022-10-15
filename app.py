@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, jsonify, render_template, request
 
 from sudoku import SudokuGenerator, SudokuSolver
 
